@@ -26,7 +26,7 @@ export default function Home() {
   const { connection } = useConnection();
   const [metaplex, setMetaplex] = useState<Metaplex | null>(null);
   const [candyMachine, setCandyMachine] = useState<CandyMachine | null>(null);
-  const [availableMints, setAvailableMints] = useState<number>(1245);
+  const [availableMints, setAvailableMints] = useState<number>(0);
   const [mintedMints, setMintedMints] = useState<number>(0);
   const totalFees = 0.00561672 + 0.0028536 + 0.00144768;
   const [collection, setCollection] = useState<
