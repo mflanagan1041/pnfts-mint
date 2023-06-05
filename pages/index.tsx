@@ -26,7 +26,7 @@ export default function Home() {
   const { connection } = useConnection();
   const [metaplex, setMetaplex] = useState<Metaplex | null>(null);
   const [candyMachine, setCandyMachine] = useState<CandyMachine | null>(null);
-  const [availableMints, setAvailableMints] = useState<number>(0);
+  const [availableMints] = useState<number>(1245);
   const [mintedMints, setMintedMints] = useState<number>(0);
   const totalFees = 0.00561672 + 0.0028536 + 0.00144768;
   const [collection, setCollection] = useState<
@@ -59,7 +59,6 @@ export default function Home() {
 
         // Set initial state here
         setMintedMints(candyMachine.itemsMinted.toNumber());
-        setAvailableMints(candyMachine.itemsAvailable.toNumber());
 
         console.log(collection);
       }
@@ -118,7 +117,6 @@ export default function Home() {
 
       // Update state here
       setMintedMints(mintedMints + 1);
-      setAvailableMints(candyMachine.itemsAvailable - mintedMints);
     } catch (e) {
       const msg = fromTxError(e);
 
@@ -202,7 +200,7 @@ export default function Home() {
                   marginBottom: "16px",
                 }}
               >
-                <span style={{ fontSize: "11px" }}>Live</span>
+                <span style={{ fontSize: "11px" }}>Minted</span>
                 <span style={{ fontSize: "11px" }}>
                   {mintedMints} / {availableMints}
                 </span>
